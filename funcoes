@@ -1,12 +1,12 @@
 global => matriz
 
 
-menu =>
+menu => chamaMenu
 
 chamar as outras funcoes até que o usuário digite 0
 
 
-cadastrar aluno =>
+cadastrar aluno => cadastrarAluno
 
 matriz[0][0] = matricula
 matriz[0][1] = nome
@@ -20,7 +20,7 @@ matriz[2][0]
 
 
 
-editar informações =>
+editar informações => editarInformacoes
 
 pedir matricula
 
@@ -29,7 +29,7 @@ editar as outras informações da linha
 
 
 
-cadastrar as notas =>
+cadastrar as notas => cadastraNotas
 
 pedir a matricula
 
