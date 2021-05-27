@@ -1,0 +1,88 @@
+global => matriz
+
+
+menu =>
+
+chamar as outras funcoes até que o usuário digite 0
+
+
+cadastrar aluno =>
+
+matriz[0][0] = matricula
+matriz[0][1] = nome
+matriz[0][2] = nota
+matriz[0][3] = media
+
+matriz[1][0]
+matriz[1][1]
+
+matriz[2][0]
+
+
+
+editar informações =>
+
+pedir matricula
+
+com um "for", pesquisar a matricula do aluno na matriz salvar a linha dele numa variável
+editar as outras informações da linha
+
+
+
+cadastrar as notas =>
+
+pedir a matricula
+
+pedir as notas
+
+calcular a media
+
+
+1) Cadastrar a matrícula e o nome do aluno (Verificar se esse 
+aluno já não está cadastrado através da matrícula).
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    6. Faça um script que leia o nome e as notas de 3 alunos e armazene essas informações em
+uma matriz no seguinte formato:
+João   10   9   8
+Maria  7    7   7   
+Pedro  8    8   8
+    <script>
+        let matriz = [];
+        let mostrarMatriz = "";
+
+        for (let i = 0; i < 3; i++) {
+            matriz[i] = [];
+            for (let j = 0; j < 6; j++) {
+                if (j == 0) {
+                    matriz[i][j] = prompt(`Informe o nome do ${i + 1}º aluno`);
+                    mostrarMatriz += matriz[i][j] + "\t";
+                } else if (j >= 1 && j <= 3) {
+                    matriz[i][j] = +prompt(`Informe a ${j}ª nota do aluno`);
+                    mostrarMatriz += matriz[i][j] + "\t";
+                } else if (j == 4) {
+                    matriz[i][j] = ((matriz[i][1] + matriz[i][2] + matriz[i][3]) / 3).toFixed(2);
+                    mostrarMatriz += matriz[i][j] + "\t";
+                } else if (j == 5){
+                    if(matriz[i][4] >= 6){
+                        matriz[i][j] = "Aprovado";
+                    } else {
+                        matriz[i][j] = "Reprovado";
+                    }
+                    mostrarMatriz += matriz[i][j] + "\t";
+                }
+
+            }
+            mostrarMatriz += "\n";
+        }
+        console.log(mostrarMatriz);
+    </script>
+</body>
+</html>
