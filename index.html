@@ -77,7 +77,7 @@
                 matriz[linha][i] = +prompt(`Informe a ${i -1}ª nota`)
             }
 
-            matriz[linha][5] = (matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3
+            matriz[linha][5] = ((matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3).toFixed(2);
         }
         //Com a linha da pesquisa, edita as notas e nome do aluno
         function editarInformacoes (linha){
@@ -87,7 +87,7 @@
                matriz[linha][i] = +prompt(`Informe a ${i - 1}ª nota`)
            }
 
-           matriz [linha][5] = (matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3
+           matriz [linha][5] = ((matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3).toFixed(2);
         }
         
         //Mostra a matriz final
