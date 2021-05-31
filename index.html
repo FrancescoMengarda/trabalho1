@@ -36,21 +36,21 @@
                 cadastrarNotas(linha);
             }
         }
-         function editarInformacoes (linha){
-            matriz[linha][1] = prompt("Informe o nome do aluno")
-
-            for (let i = 2; i < 5; i++) {
-                matriz[linha][i] = +prompt(`Informe a ${i - 1}ª nota`)
+        function cadastrarNotas(linha){
+            for( let i = 2; i < 5; i++ ){
+                matriz[linha][i] = +prompt(`informe a ${i -1}ª nota`)
             }
 
-            matriz [linha][5] = (matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3
-         }
-        
+            matriz[linha][5] = (matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3
+            }
+        function editarInformacoes (linha){
+           matriz[linha][1] = prompt("Informe o nome do aluno")
 
+           for (let i = 2; i < 5; i++) {
+               matriz[linha][i] = +prompt(`Informe a ${i - 1}ª nota`)
+           }
 
-        
-        function cadastrarNotas(){
-
+           matriz [linha][5] = (matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3
         }
         function mostraMatriz(){
 
