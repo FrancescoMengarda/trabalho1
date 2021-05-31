@@ -6,28 +6,50 @@
     <title>Trabalho Funções</title>
 </head>
 <body>
+    
     <script>
         "use strict"
         let matriz = [];
 
+        //Faz o menu aparecer na tela e redireciona para a função correspondente
         function chamarMenu(){
-            
-        }
-        function cadastrarAluno(){
-            let matricula = +prompt("digite sua matricula")
-            for( let ver = 0; ver < matriz.length; ver++){
-                if (matriz[ver] == matricula){
-                    console.log("este aluno já está cadastrado")
-                    chamarMenu()
-
-                }
+            let opcao = 0;
+            opcao = +prompt("Informe um número: \n1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar alunos\n0) Sair");
+            switch (opcao){
+                case 1:
+                cadastrarAluno();
+                break;
+                case 2:
+                pesquisarInformacoes(2)
+                break;
+                case 3:
+                pesquisarInformacoes(3)
+                break;
+                case 4:
+                mostraMatriz()
+                break;
+                default:
+                console.log("Encerrando o programa");
+                return 0
+                break;
             }
-
+        }
+        
+        //Cadastra o aluno e a matricula
+        function cadastrarAluno(){
+            let matricula = +prompt("Digite sua matricula")
+                for(let i = 0; i < matriz.length; i++){
+                    if (matriz[i] == matricula){
+                        console.log("Este aluno já está cadastrado")
+                        chamarMenu()
+                    }
+                }
             let nome = prompt("Informe o nome do aluno")
             
             matriz.push([matricula, nome])
-
         }
+        
+        //Retorna a linha onde a matrícula do aluno está localizada
         function pesquisarInformacoes(procedimento){
             let matricula = +prompt("Informe sua matricula:")
             let linha = 0
@@ -48,13 +70,16 @@
                 cadastrarNotas(linha);
             }
         }
+        
+        //Com a linha da pesquisa, cadastra as notas de um aluno
         function cadastrarNotas(linha){
             for( let i = 2; i < 5; i++ ){
-                matriz[linha][i] = +prompt(`informe a ${i -1}ª nota`)
+                matriz[linha][i] = +prompt(`Informe a ${i -1}ª nota`)
             }
 
             matriz[linha][5] = (matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3
-            }
+        }
+        //Com a linha da pesquisa, edita as notas e nome do aluno
         function editarInformacoes (linha){
            matriz[linha][1] = prompt("Informe o nome do aluno")
 
@@ -64,8 +89,41 @@
 
            matriz [linha][5] = (matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3
         }
-        function mostraMatriz(){
+        
+        //Mostra a matriz final
+        function mostraMatriz() {
+            let alunos = []
+            for (let linha = 0; linha < matriz.length; linha++) {
 
+                if (matriz[linha][2] == undefined) {
+                    let aluno = {
+                        matricula: matriz[linha][0],
+                        nome: matriz[linha][1],
+                        nota1: "--",
+                        nota2: "--",
+                        nota3: "--",
+                        media: "--",
+                    }
+                alunos.push(aluno)    
+                } else {
+                    let aluno = {
+                            matricula: matriz[linha][0],
+                            nome: matriz[linha][1],
+                            nota1: matriz[linha][2],
+                            nota2: matriz[linha][3],
+                            nota3: matriz[linha][4],
+                            media: matriz[linha][5],
+                            
+                    }
+                alunos.push(aluno)
+                }
+            }
+            console.table(alunos)
+        }
+
+        //Chama a função base do código 
+        while(chamarMenu() != 0){
+            chamarMenu();
         }
     </script>
 </body>
