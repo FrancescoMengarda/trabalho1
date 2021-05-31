@@ -16,17 +16,41 @@
         function cadastrarAluno(){
 
         }
-        function editarInformacoes(){
-
+        function pesquisarInformacoes(procedimento){
+            let matricula = +prompt("Informe sua matricula:")
+            let linha = 0
+            let achou = false
+            for (let index = 0; index < matriz.length; index++){
+                if(matriz[index][0] == matricula){
+                    linha = index
+                    achou = true
+                } 
+            }
+            if (!achou) {
+                console.log("Não encontrei")
+                chamarMenu();
+            }
+            if (procedimento == 2){
+                editarInformacoes(linha);
+            } else if (procedimento == 3) {
+                cadastrarNotas(linha);
+            }
         }
         function cadastrarNotas(linha){
-        for( let i = 2; i < 5; i++ ){
-            matriz[linha][i] = +prompt(`informe a ${i -1}ª nota`)
-        }
-    
-        matriz[linha][5] = (matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3
-    
-                         
+            for( let i = 2; i < 5; i++ ){
+                matriz[linha][i] = +prompt(`informe a ${i -1}ª nota`)
+            }
+
+            matriz[linha][5] = (matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3
+            }
+        function editarInformacoes (linha){
+           matriz[linha][1] = prompt("Informe o nome do aluno")
+
+           for (let i = 2; i < 5; i++) {
+               matriz[linha][i] = +prompt(`Informe a ${i - 1}ª nota`)
+           }
+
+           matriz [linha][5] = (matriz[linha][2] + matriz[linha][3] + matriz[linha][4])/3
         }
         function mostraMatriz(){
 
